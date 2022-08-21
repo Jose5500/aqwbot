@@ -5,16 +5,15 @@ import numpy
 import pyautogui
 from pytesseract import pytesseract
 
-import mouseActions
-import mousePositions
+from mouse import mousePositions, mouseActions
 
 
 def openInventory():
-    mouseActions.clickPosition(1400,820)
+    mouseActions.clickPosition(1400, 820)
 
 
 def closeInventory():
-    mouseActions.clickPosition(1400,820)
+    mouseActions.clickPosition(1400, 820)
 
 def clickItemSearchBar():
     search_bar_x, search_bar_y = mousePositions.ITEM_SEARCH_BAR
@@ -29,7 +28,7 @@ def searchItem(item):
 def clickNthItem(nth):
     item_x, item_y = mousePositions.FIRST_ITEM_POSITION
     item_y += mousePositions.ITEM_SPACING * (nth - 1)
-    mouseActions.clickPosition(item_x,item_y)
+    mouseActions.clickPosition(item_x, item_y)
 
 
 def checkItemMaxedOut(item):

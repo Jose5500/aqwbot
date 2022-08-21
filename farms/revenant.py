@@ -2,10 +2,10 @@ import time
 
 import pyautogui
 
-import attack
-import inventoryMethods
-import mouseActions
-import questsMethods
+from attack import attack
+from inventory import inventoryMethods
+from mouse import mouseActions
+from quests import questsMethods
 import utilities
 
 
@@ -213,9 +213,9 @@ def farm_diamond_token_of_dage():
         mouseActions.clickPosition(1333, 551)
         time.sleep(3)
         attack.attack_for_x_minutes(1)
-        mouseActions.clickPosition(882,45)
+        mouseActions.clickPosition(882, 45)
         time.sleep(3)
-        mouseActions.clickPosition(2,257)
+        mouseActions.clickPosition(2, 257)
         time.sleep(3)
 
         # go to carnax

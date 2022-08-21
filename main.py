@@ -1,18 +1,10 @@
 import time
-import cv2
 import mss
 import numpy
 import pytesseract
 import pyautogui
 
 import attack
-import drops
-import farms
-import mouseActions
-import mousePositions
-import questsMethods
-import revenant
-import utilities
 
 
 def first():
@@ -40,8 +32,6 @@ def getItemText():
 
 
 if __name__ == '__main__':
-    time.sleep(2)
-    while True:
-        attack.attack()
+    pyautogui.mouseInfo()
 
 

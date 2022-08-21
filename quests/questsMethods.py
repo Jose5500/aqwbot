@@ -1,25 +1,24 @@
 import time
 
-import mouseActions
-import mousePositions
+from mouse import mousePositions, mouseActions
 
 
 def open_pinned_quests():
     pinned_quest_x,pinned_quest_y = mousePositions.PINNED_QUESTS
-    mouseActions.clickPosition(pinned_quest_x,pinned_quest_y)
+    mouseActions.clickPosition(pinned_quest_x, pinned_quest_y)
 
 def click_nth_quest(n):
     quest_x,quest_y = mousePositions.FIRST_QUEST_POSITION
     quest_y += (n-1) * mousePositions.QUEST_SPACING
-    mouseActions.clickPosition(quest_x,quest_y)
+    mouseActions.clickPosition(quest_x, quest_y)
 
 def accept_quest():
     button_x,button_y = mousePositions.ACCEPT_QUEST_BUTTON
-    mouseActions.clickPosition(button_x,button_y)
+    mouseActions.clickPosition(button_x, button_y)
 
 def submit_quest():
     button_x, button_y = mousePositions.TURN_IN_QUEST_BUTTON
-    mouseActions.clickPosition(button_x,button_y)
+    mouseActions.clickPosition(button_x, button_y)
 
 def submit_nth_quest_xth_times(n,x):
     open_pinned_quests()
