@@ -5,8 +5,8 @@ import pyautogui
 
 import attack
 import drops
-import inventoryMethods
-import mouseActions
+from inventory import inventoryMethods
+from mouse import mouseActions
 
 
 def farm_until_max_stack(item, charPosition):
@@ -51,10 +51,10 @@ def farm_until_receive_item(item):
                 break
             attack.attack()
 
-def go_to_location(location):
-    mouseActions.clickPosition(250,820)
+def go_to_location(location,server=""):
+    mouseActions.clickPosition(250, 820)
     time.sleep(2)
-    pyautogui.typewrite(location)
+    pyautogui.typewrite("/join " + location + ("-" + server if server else ""))
     pyautogui.press("enter")
 
 

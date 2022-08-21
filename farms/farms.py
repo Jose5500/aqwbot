@@ -3,10 +3,10 @@ import time
 
 import pyautogui
 
-import attack
-import inventoryMethods
-import mouseActions
-import questsMethods
+from attack import attack
+from inventory import inventoryMethods
+from mouse import mouseActions
+from quests import questsMethods
 
 
 def farm_void_auras():
@@ -19,9 +19,9 @@ def farm_void_auras():
         if is_maxed_out:
             mouseActions.clickPosition(1400, 750)
             time.sleep(2)
-            times_to_submit_undead_essence = (inventoryMethods.getCurrAmountOfStacks("undead essence")//25) - 1
+            times_to_submit_undead_essence = (inventoryMethods.getCurrAmountOfStacks("undead essence") // 25) - 1
             questsMethods.submit_nth_quest_xth_times(7, times_to_submit_undead_essence)
-            times_to_submit_bone_dust = (inventoryMethods.getCurrAmountOfStacks("bone dust")//40) - 1
+            times_to_submit_bone_dust = (inventoryMethods.getCurrAmountOfStacks("bone dust") // 40) - 1
             questsMethods.submit_nth_quest_xth_times(8, times_to_submit_bone_dust)
             mouseActions.clickPosition(350, 85)
             time.sleep(2)
@@ -42,7 +42,8 @@ def farm_finding_fragments_quest():
         if is_maxed_out:
             mouseActions.clickPosition(1400, 750)
             time.sleep(2)
-            times_to_submit_undead_essence = (inventoryMethods.getCurrAmountOfStacks("blinding light fragments")//10) - 1
+            times_to_submit_undead_essence = (
+                                                         inventoryMethods.getCurrAmountOfStacks("blinding light fragments") // 10) - 1
             questsMethods.submit_nth_quest_xth_times(1, times_to_submit_undead_essence)
             mouseActions.clickPosition(350, 85)
             time.sleep(2)
@@ -80,9 +81,9 @@ def farm_dark_tokens():
         for i in range(20):
             attack.attack()
         for i in range(10):
-            mouseActions.clickPosition(942,143)
+            mouseActions.clickPosition(942, 143)
             time.sleep(0.5)
-            mouseActions.clickPosition(1010,143)
+            mouseActions.clickPosition(1010, 143)
             time.sleep(0.5)
 def farm_fishing():
     while True:

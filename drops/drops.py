@@ -1,6 +1,6 @@
 import time
 
-import mouseActions
+from mouse import mouseActions
 import mss
 import numpy
 import pytesseract
@@ -11,7 +11,7 @@ def accept_drop():
 
 
 def reject_drop():
-    mouseActions.clickPosition(860,740)
+    mouseActions.clickPosition(860, 740)
 
 def get_curr_lowest_drop():
     mon = {'top': 726, 'left': 570, 'width': 240, 'height': 25}
@@ -36,7 +36,7 @@ def is_item_in_drops(item):
         else:
             reject_drop()
 def open_drops():
-    mouseActions.clickPosition(720,765)
+    mouseActions.clickPosition(720, 765)
 
 def close_drops():
     mouseActions.clickPosition(720, 765)
