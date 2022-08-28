@@ -5,19 +5,20 @@ import numpy
 import pyautogui
 from pytesseract import pytesseract
 
-from mouse import mousePositions, mouseActions
+from mouse import constants, mouseActions
+from inventory import constants
 
 
 def openInventory():
-    mouseActions.clickPosition(1400, 820)
+    mouseActions.clickPosition(constants.INVENTORY_POS)
 
 
 def closeInventory():
-    mouseActions.clickPosition(1400, 820)
+    mouseActions.clickPosition(constants.INVENTORY_POS)
+
 
 def clickItemSearchBar():
-    search_bar_x, search_bar_y = mousePositions.ITEM_SEARCH_BAR
-    mouseActions.clickPosition(search_bar_x, search_bar_y)
+    mouseActions.clickPosition(constants.ITEM_SEARCH_BAR_POS)
 
 
 def searchItem(item):
@@ -26,8 +27,8 @@ def searchItem(item):
 
 
 def clickNthItem(nth):
-    item_x, item_y = mousePositions.FIRST_ITEM_POSITION
-    item_y += mousePositions.ITEM_SPACING * (nth - 1)
+    item_x, item_y = constants.FIRST_ITEM_POSITION_POS
+    item_y += constants.ITEM_SPACING * (nth - 1)
     mouseActions.clickPosition(item_x, item_y)
 
 
@@ -61,12 +62,10 @@ def getCurrAmountOfStacks(item):
 
 
 def getItemText():
-    mon = {'top': 370, 'left': 500, 'width': 450, 'height': 175}
+    box_boundaries = constants.ITEM_BOX_BOUNDARIES
 
     with mss.mss() as sct:
-        im = numpy.asarray(sct.grab(mon))
-        # im = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-
+        im = numpy.asarray(sct.grab(box_boundaries))
         text = pytesseract.image_to_string(im)
         return text
 
@@ -90,6 +89,6 @@ def equipItem(item):
     time.sleep(1)
     clickNthItem(1)
     time.sleep(1)
-    mouseActions.clickPosition(800, 740)
+    mouseActions.clickPosition(constants.ITEM_EQUIP_BUTTON_POS)
     time.sleep(1)
     closeInventory()
