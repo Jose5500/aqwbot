@@ -285,6 +285,15 @@ def farm_diamond_token_of_dage():
             questsMethods.submit_nth_quest_xth_times(6, 1)
         time.sleep(2)
 
+def farm_dark_tokens():
+    while True:
+        for i in range(20):
+            attack.attack()
+        for i in range(10):
+            mouseActions.clickPosition(942, 143)
+            time.sleep(0.5)
+            mouseActions.clickPosition(1010, 143)
+            time.sleep(0.5)
 
 def get_to_dracolichs():
     positions = [[570, 515], [1180, 670], [930, 740], [990, 685], [970, 285], [1050, 385], [1405, 510], [1420, 585],
